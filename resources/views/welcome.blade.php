@@ -44,7 +44,6 @@
 <!-- disable iPhone inital scale -->
 <meta name="viewport" content="width=device-width; initial-scale=1.0">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="http://www.kidlek.com/fb/jquery.js"></script>
 <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 <script type="text/javascript" src="http://www.kidlek.com/fb/fb-traffic-pop.js"></script>
         <script>
