@@ -67,7 +67,7 @@
                         str = "<tr><td>" + (i + 1) + "</td><td><input type='text' size=6 id='name_" + i + "'  class='content-box-program-inputbox'></td><td><input type='text' size=7 class='content-box-program-inputbox' id='credit_" + i + "'></td><td><input type='text' size=4 id='grade_" + i + "' class='content-box-program-inputbox'></td></tr>";
                         $('#table_display').append(str);
                     }
-                    $('#gen_submit').addClass("btn-danger").text("ตกลง");
+                    $('#gen_submit').addClass("btn-danger").text("submit");
                 } else {
                     $('.control-group').addClass('error');
                     $('.table').hide().css({'opacity':'0'});
@@ -84,24 +84,24 @@
                         var ec = $('#credit_' + i);
                         var es = $('#grade_' + i);
                         if (!isNumber(ec.val())) {
-                            alert("ป้อนข้อมูลหน่วยกิตไม่ถูกต้อง");
+                            alert("incorrect to credit");
                             ec.focus();
                             return;
                         } else {
                             if (parseFloat(ec.val()) <= 0.0) {
-                                alert("ป้อนข้อมูลหน่วยกิตไม่ถูกต้อง");
+                                alert("incorrect to credit");
                                 ec.focus();
                                 return;
                             }
                         }
 
                         if (!isNumber(es.val())) {
-                            alert("ป้อนข้อมูลเกรดที่ได้ไม่ถูกต้อง");
+                            alert("incorect to grade");
                             es.focus();
                             return;
                         } else {
                             if (parseFloat(es.val()) <= 0.0 || parseFloat(es.val()) > 4.0) {
-                                alert("ป้อนข้อมูลเกรดที่ได้ไม่ถูกต้อง");
+                                alert("incorect to grade");
                                 es.focus();
                                 return;
                             }
@@ -111,7 +111,7 @@
                         got_weight += parseFloat(ec.val()) * parseFloat(es.val());
                     }
                     var calculated = (got_weight / all_weight).toFixed(2);
-                    $('#grade').text("เกรดที่ได้ " + calculated);
+                    $('#grade').text("GPA" + calculated);
                     var grade = calculated;
                     $("#grade").val(grade);
                 }
@@ -142,25 +142,20 @@ function printpage()
 <body>
 
 <div id="pagewrap">
-<!-- /#header -->
-
-
-<!--<center><a href="https://www.facebook.com/mama.pillow" target="new"><img src="images/ads-web.gif"></a></center> -->
-
 	<div id="content">
 
 		<article class="post clearfix">
 
 
 			<header>
-				<center><h1 class="post-title">โปรแกรมคำนวณเกรดเฉลี่ยต่อเทอม</h1></center>
+				<center><h1 class="post-title">GPA ONLINE</h1></center>
 			</header>
 			<br>
 <center>
                     <form class="request">
-                        <span class="add-on"><b>จำนวนวิชาทั้งหมด</b></span>
+                        <span class="add-on"><b>Number of subject</b></span>
                         <input size=1 class="content-box-program-inputbox" id="total_subject" type="text">
-                        <button class="content-box-program-bottoncalc" type="submit" id="gen_submit">ตกลง</button>
+                        <button class="content-box-program-bottoncalc" type="submit" id="gen_submit">submit</button>
                     </form>
 
                 <table class="table table-condensed" >
@@ -168,8 +163,8 @@ function printpage()
                         <tr>
                             <th> </th>
                             <th>ชื่อวิชา</th>
-                            <th style="text-align:center;">หน่วยกิต</th>
-                            <th style="text-align:center;">เกรดที่ได้</th>
+                            <th style="text-align:center;">credit</th>
+                            <th style="text-align:center;">grade</th>
                         </tr>
                     </thead>
                     <tbody id="table_display" ></tbody>
@@ -196,7 +191,7 @@ function printpage()
                         </tr>
                          <tr>
                         	<td></td>
-                       	<td style="text-align: right;">เกรดเฉลี่ย</td>
+                       	<td style="text-align: right;">GPA</td>
                         	<td><input type=text size=5 id='grade' readonly class='content-box-program-inputbox'></td>
                         	<td></td>
                         </tr>
@@ -213,23 +208,9 @@ function printpage()
 </center>
 
 		</article>
-		<!-- /.post -->
 
 	</div>
-	<!-- /#content -->
-
-		<aside id="sidebar">
-
-
-
-	</aside>
-	<!-- /#sidebar -->
-	<footer id="footer">
-
-	</footer>
-	<!-- /#footer -->
 
 </div>
-<!-- /#pagewrap -->
 </body>
 </html>
